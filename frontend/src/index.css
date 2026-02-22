@@ -1,68 +1,70 @@
+/* TODO: Need to add the font style */
+
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --bg-color: #f8f7f8;
+  --hovered-color: #f1edec;
+  --main-win: #fafafa;
+  --main-button: #c4a78a;
+  --search-bg: #f4f3f5;
+  --text: #2f2e32;
+  --test: #32a852;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+html, body, #root {
+  margin: 0;
+  width: 100%;
+  height: 100%;
 }
-a:hover {
-  color: #535bf2;
-}
+
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  /* background-image: url('/gridbg.png'); */
+  /* background-size: cover; */
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  /* background-attachment: fixed; */
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.app-shell {
+  width: calc(100% - 3rem);
+  min-height: calc(100vh - 3rem);
+  /* margin: 1.5rem; */
+  padding: 2rem;
+  background: var(--test);
+  backdrop-filter: blur(4px); /*for glass effect*/
+
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 1rem;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.sidebar {
+  background: var(--bg-color);
+  padding: 1rem;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.sidebar-nav {
+  display: grid;
+  gap: 0.5rem;
 }
+
+.sidebar-nav a {
+  text-decoration: none;
+  color: var(--text);
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.sidebar-nav a:hover {
+  background-color: var(--hovered-color);
+}
+
+
+
+
+
+
+

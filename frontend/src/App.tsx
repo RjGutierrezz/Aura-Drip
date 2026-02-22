@@ -1,13 +1,14 @@
 import { useState } from 'react'
-import './App.css'
+import Sidebar from './components/Sidebar'
 
+// render the components here
 function App() {
 
   return (
-    <>
-
-
-    </>
+    <main className="app-shell">
+      {/* components are going here */}
+      <Sidebar />
+    </main>
   )
 }
 

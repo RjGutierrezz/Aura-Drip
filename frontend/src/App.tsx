@@ -1,17 +1,26 @@
-import Dashboard from './components/Dashboard'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Sidebar from './components/Sidebar'
+import DashboardPage from './components/pages/Dashboard'
+import WardrobePage from './components/pages/WardrobePage'
+import OutfitPage from './components/pages/OutfitPage'
+import FavoritePage from './components/pages/FavoritePage'
 
-// render the components here
 function App() {
-
   return (
-    <main className="app-shell">
-      {/* components are going here */}
-      <Sidebar />
-      <section className="content">
-        <Dashboard />
-      </section>
-    </main>
+    <BrowserRouter>
+      <main className="app-shell">
+        <Sidebar />
+        <div className="content">
+          <Routes>
+            
+            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/wardrobe" element={<WardrobePage />} />
+            <Route path="/outfit" element={<OutfitPage />} />
+            <Route path="/favorite" element={<FavoritePage />} />
+          </Routes>
+        </div>
+      </main>
+    </BrowserRouter>
   )
 }
 

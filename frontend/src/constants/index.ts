@@ -14,22 +14,22 @@ export type SidebarLinkType = {
 export const sidebarLinks: SidebarLinkType[] = [
   {
     name: "Dashboard",
-    href: "#",
+    href: "/dashboard",
     icon: Dashboard,
   },
   {
     name: "Wardrobe",
-    href: "#",
+    href: "/wardrobe",
     icon: Wardrobe,
   },
   {
     name: "Outfit",
-    href: "#",
+    href: "/outfit",
     icon: Flame,
   },
   {
     name: "Favorite",
-    href: "#",
+    href: "/favorite",
     icon: Favorite,
   },
 

@@ -1,5 +1,5 @@
-import MagnifierIcon from "./icons/magnifier-icon"
-import type { AnimatedIconHandle } from "./icons/types"
+import MagnifierIcon from "../icons/magnifier-icon"
+import type { AnimatedIconHandle } from "../icons/types"
 import { useRef } from "react" 
 
 const Dashboard = () => {

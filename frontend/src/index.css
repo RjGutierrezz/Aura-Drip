@@ -9,6 +9,7 @@
   --search-bg: #f4f3f5;
   --text: #2f2e32;
   --test: #32a852;
+  --search: #f4f3f5;
 }
 
 html, body, #root {
@@ -108,13 +109,66 @@ body {
     0 10px 30px rgba(0, 0, 0, 0.10),
     inset 0 1px 0 rgba(255, 255, 255, 0.55);
   border-radius: 18px;
+  padding: 28px;
 }
-
 
 .dashboard-page {
-  background: var(--bg-color);
 }
 
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  width: min(480px, 100%);
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  border-radius: 18px;
+}
+
+.search-icon {
+  color: var(--text);
+  padding-left: 15px;
+  width: 18px;
+  height: 18px;
+  padding-right: 10px;
+}
+
+.search {
+  border: transparent;
+  font-size: 15px;
+  padding: 8px;
+  border-radius: 13px;
+  background: var(--search);
+  width: 100%;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  gap: 1.55rem;
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.profile-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: var(--search);
+}
 
 
 

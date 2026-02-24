@@ -1,5 +1,5 @@
 /* TODO: Need to add the font style - DONE*/
-
+/* TODO: Needs mobile friendly resolution */
 
 :root {
   --bg-color: #f8f7f8;
@@ -51,7 +51,7 @@ body {
 }
 
 .sidebar {
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.70);
   border: 1px solid rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(18px) saturate(140%);
   -webkit-backdrop-filter: blur(18px) saturate(140%);
@@ -97,6 +97,23 @@ body {
   letter-spacing: 0.05em;
 }
 
+
+/* right content */
+.content {
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  border-radius: 18px;
+}
+
+
+.dashboard-page {
+  background: var(--bg-color);
+}
 
 
 

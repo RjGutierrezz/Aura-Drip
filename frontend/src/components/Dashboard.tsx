@@ -29,6 +29,15 @@ const Dashboard = () => {
 
         <div className="dashboard-greetings">
           {/* add getting / current weather / button to generate git */}
+          <div className="greeting">
+
+          </div>  
+
+          <div className="essential">
+            <div className="weather-api">
+
+            </div>
+          </div>
         </div>
 
         <div className="dashboard-main-content">

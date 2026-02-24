@@ -1,3 +1,6 @@
+// TODO: weather API functionality
+
+
 import MagnifierIcon from "../icons/magnifier-icon"
 import type { AnimatedIconHandle } from "../icons/types"
 import { useRef } from "react" 
@@ -30,13 +33,18 @@ const Dashboard = () => {
         <div className="dashboard-greetings">
           {/* add getting / current weather / button to generate git */}
           <div className="greeting">
-
+            {/* TODO: the greeting should change the name of who is signed in */}
+            <h1 className="greeting-title">
+              Good day, John
+            </h1>
+            <p className="greeting-text">Let's create the perfect fit for the day!</p>
           </div>  
 
           <div className="essential">
             <div className="weather-api">
-
+              <p>Weather API</p>
             </div>
+            <button className="outfit-button glass-panel">Generate Outfit</button>
           </div>
         </div>
 

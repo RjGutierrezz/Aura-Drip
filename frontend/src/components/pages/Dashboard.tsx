@@ -4,6 +4,7 @@
 import MagnifierIcon from "../icons/magnifier-icon"
 import type { AnimatedIconHandle } from "../icons/types"
 import { useRef } from "react" 
+import WardrobeCategories from "../WardrobeCategories";
 
 const Dashboard = () => {
   const searchIconRef = useRef<AnimatedIconHandle | null> (null)
@@ -50,6 +51,29 @@ const Dashboard = () => {
 
         <div className="dashboard-main-content">
           {/* add wardrobe quick preview / todays suggestion */}
+          <div className="wardrobe-container glass-panel">
+            <div className="wardrobe-header">
+              {/* Title and Sort option here */}
+              <h3>My Wardrobe</h3>
+              <select className="sort-wardrobe glass-panel" name="sort" id="sort">
+                <option value="default">Sort</option>
+                <option value="name-asc">(A-Z)</option>
+                <option value="name-dec">(Z-A)</option>
+              </select>
+            </div>
+            <div className="wardrobe-categories">
+              {/* clothes categories here */}
+              <WardrobeCategories/>
+            </div>
+            <div className="wardrobe-main-content">
+              {/* clothes preview */}
+
+            </div>
+          </div>
+          <div className="suggestion-container glass-panel">
+            <h3>Today's suggestion</h3>
+
+          </div>
         </div>
 
         <div className="dashboard-footer">

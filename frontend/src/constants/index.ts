@@ -11,6 +11,11 @@ export type SidebarLinkType = {
   icon: ComponentType<{ size?: number; className?: string}>
 }
 
+export type Category = {
+  id: string
+  name: string
+}
+
 export const sidebarLinks: SidebarLinkType[] = [
   {
     name: "Dashboard",
@@ -32,5 +37,15 @@ export const sidebarLinks: SidebarLinkType[] = [
     href: "/favorite",
     icon: Favorite,
   },
-
 ]
+
+export const wardrobeCategories: Category[] = [
+  {id: "All", name : "All"},
+  {id: "Tops", name : "Tops"},
+  {id: "Bottoms", name : "Bottoms"},
+  {id: "Shoes", name : "Shoes"},
+  {id: "Outerwear", name : "Outerwear"},
+]
+
+
+

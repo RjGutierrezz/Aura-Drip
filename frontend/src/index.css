@@ -266,7 +266,8 @@ body {
 
 .category-btn.active {
   background: linear-gradient(180deg, #e1e4e8 0%, #939ca3 100%);
-  color: var(--text);
+  color: #fff;
+  border: 1px solid var(--bg-color)
   /* background: var(--search); */
 }
 

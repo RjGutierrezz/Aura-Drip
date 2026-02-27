@@ -127,6 +127,9 @@ body {
 }
 
 .dashboard-page {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .dashboard-header {
@@ -224,9 +227,9 @@ body {
 /* wardrobe content css */
 .dashboard-main-content {
   display: grid;
-  grid-template-columns: 600px 1fr;
+  grid-template-columns: 660px 1fr;
   justify-content: space-between;
-  gap: 20px; 
+  gap: 0.5rem; 
   
 }
 
@@ -244,6 +247,11 @@ body {
 }
 
 .wardrobe-container {
+  /* this part allows the container to be fixed size and be scrollable */
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -273,10 +281,18 @@ body {
 }
 
 
+
+
+
 /* wardrobe clothes css */
 .wardrobe-main-content {
   margin-top: 1rem;
   margin-bottom: 1rem;
+
+  /* allows the clothes to be scrollable */
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
 }
 
 .clothing-grid {
@@ -292,7 +308,7 @@ body {
 
 .clothing-image-container {
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 4/3;
   background: linear-gradient(
     180deg,
     rgba(245, 245, 247, 0.95) 0%,
@@ -302,7 +318,7 @@ body {
   border-radius: 14px;
 }
 
-/* instead of making classNames for h4 / p just do the following */
+/* instead of making classNames for h4 & p just do the following */
 .clothing-body h4 {
   font-size: 0.95rem;
   margin-top: 0.5rem;
@@ -338,7 +354,7 @@ body {
 
 .suggestion-image-container {
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 1/1;
   background: linear-gradient(
     180deg,
     rgba(245, 245, 247, 0.95) 0%,
@@ -348,6 +364,48 @@ body {
   border-radius: 14px;
 }
 
+
+
+
+/* footer css */
+.dashboard-footer {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.drip-container {
+  margin: 0;
+  min-height: 0;
+  padding: 0px 20px 0px 20px;
+}
+
+.drip-inspo-container {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.inspo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.inspo-card {
+  padding: 5px;
+}
+
+
+.inspo-image-container {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: linear-gradient(
+    180deg,
+    rgba(245, 245, 247, 0.95) 0%,
+    rgba(232, 232, 235, 0.9) 55%,
+    rgba(220, 220, 224, 0.85) 100%
+  );
+  border-radius: 14px;
+}
 
 
 

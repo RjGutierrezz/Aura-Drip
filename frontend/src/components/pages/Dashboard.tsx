@@ -7,6 +7,7 @@ import { useRef } from "react"
 import WardrobeCategories from "../WardrobeCategories";
 import WardrobeClothes from "../WardrobeClothes";
 import SuggestionContent from "../SuggestionContent";
+import DripInspiration from "../DripInspiration";
 
 const Dashboard = () => {
   const searchIconRef = useRef<AnimatedIconHandle | null> (null)
@@ -81,7 +82,10 @@ const Dashboard = () => {
         <div className="dashboard-footer">
           {/* pinterest fit inspo / style metric to show how much clothes they have */}
           {/* that are casual, formal, business */}
-          
+          <div className="drip-container glass-panel">
+            <h3>Drip Inspiration</h3>
+            <DripInspiration/>
+          </div>
         </div>
 			</div>
 		</>

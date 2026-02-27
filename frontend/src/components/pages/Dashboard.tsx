@@ -1,38 +1,19 @@
 // TODO: weather API functionality
 
 
-import MagnifierIcon from "../icons/magnifier-icon"
-import type { AnimatedIconHandle } from "../icons/types"
-import { useRef } from "react" 
 import WardrobeCategories from "../WardrobeCategories";
 import WardrobeClothes from "../WardrobeClothes";
 import SuggestionContent from "../SuggestionContent";
 import DripInspiration from "../DripInspiration";
+import ContentHeader from "../ContentHeader";
 
 const Dashboard = () => {
-  const searchIconRef = useRef<AnimatedIconHandle | null> (null)
 
 	return (
 		<>
       {/* not reall using dashboard-page here */}
 			<div className="dashboard-page">
-				<div 
-          className="dashboard-header"
-          onMouseEnter= {() => searchIconRef.current?.startAnimation()}
-          onMouseLeave={() => searchIconRef.current?.stopAnimation()}
-        >
-          {/* add search button and profile here */}
-          <div className="search-container">
-            <MagnifierIcon ref={searchIconRef} size={14} className="search-icon" />
-            <input className="search" type="text" placeholder="Search your wardrobe.." />
-          </div>
-
-          <div className="profile-container">
-            <span className="profile-avatar" area-hidden="true"></span>
-            <span className="profile-name">John Doe</span>
-          </div>
-        </div>
-
+        <ContentHeader/>
 
         <div className="dashboard-greetings">
           {/* add getting / current weather / button to generate git */}

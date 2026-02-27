@@ -5,6 +5,7 @@ import MagnifierIcon from "../icons/magnifier-icon"
 import type { AnimatedIconHandle } from "../icons/types"
 import { useRef } from "react" 
 import WardrobeCategories from "../WardrobeCategories";
+import WardrobeClothes from "../WardrobeClothes";
 
 const Dashboard = () => {
   const searchIconRef = useRef<AnimatedIconHandle | null> (null)
@@ -67,7 +68,7 @@ const Dashboard = () => {
             </div>
             <div className="wardrobe-main-content">
               {/* clothes preview */}
-
+              <WardrobeClothes/>
             </div>
           </div>
           <div className="suggestion-container glass-panel">

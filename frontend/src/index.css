@@ -233,7 +233,8 @@ body {
 .sort-wardrobe {
   padding: 5px;
   width: 70px;
-  margin-top: 10px;
+  height: 30px;
+  margin-top: 20px;
   margin-bottom: 10px;
 }
 
@@ -272,8 +273,55 @@ body {
 }
 
 
+/* wardrobe clothes css */
+.wardrobe-main-content {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.clothing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+}
 
 
+.clothing-card {
+  padding: 5px;
+}
+
+.clothing-image-container {
+  width: 100%;
+  aspect-ratio: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(245, 245, 247, 0.95) 0%,
+    rgba(232, 232, 235, 0.9) 55%,
+    rgba(220, 220, 224, 0.85) 100%
+  );
+  border-radius: 14px;
+}
+
+/* instead of making classNames for h4 / p just do the following */
+.clothing-body h4 {
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.3rem;
+  text-align: center;
+}
+
+/* it might be better to not show this instead */
+.clothing-body p {
+  margin: 0;
+  opacity: 0.75;
+  font-size: 0.85rem;
+}
+
+.clothing-body span {
+  display: inline-block;
+  opacity: 0.7;
+  font-size: 0.8rem;
+}
 
 
 

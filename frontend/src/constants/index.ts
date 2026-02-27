@@ -16,6 +16,7 @@ export type Category = {
   name: string
 }
 
+
 export const sidebarLinks: SidebarLinkType[] = [
   {
     name: "Dashboard",
@@ -47,5 +48,19 @@ export const wardrobeCategories: Category[] = [
   {id: "Outerwear", name : "Outerwear"},
 ]
 
+
+export type ClothingItems = {
+  id: string
+  name: string
+  category: string
+  color: string
+}
+
+export const wardrobeClothesPlaceholder: ClothingItems[] = [
+  {id: "1", name: "Cream Tee", category: "Tops", color: "Beige"},
+  {id: "2", name: "Wide Trousers", category: "Bottoms", color: "Sand"},
+  {id: "3", name: "Leather Boots", category: "Shoes", color: "Brown"},
+  {id: "4", name: "Wool Coat", category: "Outerwear", color: "Camel"},
+]
 
 

@@ -6,6 +6,7 @@ import type { AnimatedIconHandle } from "../icons/types"
 import { useRef } from "react" 
 import WardrobeCategories from "../WardrobeCategories";
 import WardrobeClothes from "../WardrobeClothes";
+import SuggestionContent from "../SuggestionContent";
 
 const Dashboard = () => {
   const searchIconRef = useRef<AnimatedIconHandle | null> (null)
@@ -73,7 +74,7 @@ const Dashboard = () => {
           </div>
           <div className="suggestion-container glass-panel">
             <h3>Today's suggestion</h3>
-
+            <SuggestionContent/>
           </div>
         </div>
 

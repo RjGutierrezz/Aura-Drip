@@ -324,4 +324,30 @@ body {
 }
 
 
+/* suggestion css */
+.suggestion-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 10px;
+}
+
+.suggestion-container h3 {
+  margin: 0px 0px 10px 0px;
+}
+
+.suggestion-image-container {
+  width: 100%;
+  aspect-ratio: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(245, 245, 247, 0.95) 0%,
+    rgba(232, 232, 235, 0.9) 55%,
+    rgba(220, 220, 224, 0.85) 100%
+  );
+  border-radius: 14px;
+}
+
+
+
 

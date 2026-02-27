@@ -1,5 +1,9 @@
+import ContentHeader from "../ContentHeader";
+
 export default function WaredrobePage() {
   return (
-      <h1>Wardrobe Page</h1>
+    <>
+      <ContentHeader/>
+    </>
   )
 }

@@ -56,7 +56,7 @@ body {
 
 .app-shell {
   width: calc(100% - 2rem);
-  min-height: calc(100vh - 2rem);
+  height: calc(100vh - 2rem);
   /* margin: 1.5rem; */
   padding: 1rem;
   display: grid;
@@ -124,12 +124,20 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.55);
   border-radius: 18px;
   padding: 28px;
+  overflow: hidden;
+
+  /* to make the container cover the entire content page dynamically */
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
 .dashboard-page {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  height: 100%;
+  min-height: 0;
 }
 
 .dashboard-header {
@@ -228,9 +236,10 @@ body {
 .dashboard-main-content {
   display: grid;
   grid-template-columns: 660px 1fr;
-  justify-content: space-between;
   gap: 0.8rem; 
-  
+ 
+  flex: 1;
+  min-height: 0;
 }
 
 .sort-wardrobe {
@@ -248,7 +257,8 @@ body {
 
 .wardrobe-container {
   /* this part allows the container to be fixed size and be scrollable */
-  height: 350px;
+  height: 100%;
+  min-height: 0;
   display: flex;
   flex-direction: column;
 
@@ -293,6 +303,8 @@ body {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
+  background: transparent;
+
 }
 
 .clothing-grid {
@@ -409,4 +421,32 @@ body {
 }
 
 
+/*had to add this because the content header inside the wardrobe page ruins the height */
+.wardrobe-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  gap: 0.5rem;
+}
+
+.wardrobe-page-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+
+.wardrobe-container-page {
+  margin-top: 1rem;
+}
+
+.wardrobe-container--compact {
+  height: 350px;
+}
+
+.wardrobe-container--full {
+  flex: 1;
+  height: 100%;
+  min-height: 0;
+}
 

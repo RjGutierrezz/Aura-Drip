@@ -1,10 +1,14 @@
 import WardrobeCategories from "./WardrobeCategories";
 import WardrobeClothes from "./WardrobeClothes";
 
-const WardrobeContainer = () => {
+
+type WardrobeContainerProps = {
+  mode?: "compact" | "full"
+}
+
+const WardrobeContainer = ({mode = "compact"}: WardrobeContainerProps) => {
 	return (
-		<div>
-			<div className="wardrobe-container glass-panel">
+		<div className={`wardrobe-container wardrobe-container--${mode} glass-panel`}>
 				<div className="wardrobe-header">
 					{/* Title and Sort option here */}
 					<h3>My Wardrobe</h3>
@@ -22,7 +26,6 @@ const WardrobeContainer = () => {
 					{/* clothes preview */}
 					<WardrobeClothes />
 				</div>
-			</div>
 		</div>
 	);
 };

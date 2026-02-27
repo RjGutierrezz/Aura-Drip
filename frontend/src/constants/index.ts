@@ -72,6 +72,12 @@ export const wardrobeClothesPlaceholder: ClothingItems[] = [
   {id: "2", name: "Wide Trousers", category: "Bottoms", color: "Sand"},
   {id: "3", name: "Leather Boots", category: "Shoes", color: "Brown"},
   {id: "4", name: "Wool Coat", category: "Outerwear", color: "Camel"},
+
+  {id: "1", name: "Cream Tee", category: "Tops", color: "Beige"},
+  {id: "2", name: "Wide Trousers", category: "Bottoms", color: "Sand"},
+  {id: "3", name: "Leather Boots", category: "Shoes", color: "Brown"},
+  {id: "4", name: "Wool Coat", category: "Outerwear", color: "Camel"},
+
 ]
 
 // TODO: not sure if I want to add images for the placeholder for now

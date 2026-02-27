@@ -55,14 +55,14 @@ body {
 
 
 .app-shell {
-  width: calc(100% - 3rem);
-  min-height: calc(100vh - 3rem);
+  width: calc(100% - 2rem);
+  min-height: calc(100vh - 2rem);
   /* margin: 1.5rem; */
-  padding: 2rem;
+  padding: 1rem;
   display: grid;
 
   /* 260px is the sidebar size and 1fr is the rest of the content */
-  grid-template-columns: 260px 1fr;
+  grid-template-columns: 245px 1fr;
   gap: 1rem;
 }
 
@@ -229,7 +229,7 @@ body {
   display: grid;
   grid-template-columns: 660px 1fr;
   justify-content: space-between;
-  gap: 0.5rem; 
+  gap: 0.8rem; 
   
 }
 
@@ -371,6 +371,7 @@ body {
 .dashboard-footer {
   display: grid;
   grid-template-rows: auto 1fr;
+  margin-top: 0.3rem;
 }
 
 .drip-container {

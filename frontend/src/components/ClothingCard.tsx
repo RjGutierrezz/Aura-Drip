@@ -8,7 +8,7 @@ type ClothingCardProps = {
 const ClothingCard = ({ name, category, color}: ClothingCardProps) => {
   return (
     <div>
-      <article className="clothing-card glass-panel">
+      <article className="clothing-card">
         <div className="clothing-image-container" />
           <div className="clothing-body">
             {/* name needs to be here */}

@@ -230,6 +230,7 @@ body {
   font-size: 18px;
   color: var(--bg-color);
   border-radius: 16px;
+  cursor: pointer;
 }
 
 /* wardrobe content css */

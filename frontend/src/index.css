@@ -146,6 +146,10 @@ body {
   justify-content: space-between;
 }
 
+.profile-header {
+   margin-left: auto;
+}
+
 .search-container {
   display: flex;
   align-items: center;
@@ -267,6 +271,32 @@ body {
   padding-right: 20px;
 }
 
+/* favorites content css */
+.sort-favorites {
+  padding: 5px;
+  width: 85px;
+  height: 30px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.favorites-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.favorites-container {
+  /* this part allows the container to be fixed size and be scrollable */
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
 .suggestion-container {
   display: flex;
   justify-content: center;
@@ -329,6 +359,17 @@ body {
     rgba(220, 220, 224, 0.85) 100%
   );
   border-radius: 14px;
+}
+
+/*heart button*/
+.favorite-btn {
+  position: relative;
+  top: 10px;
+  left: 215px;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
 }
 
 /* instead of making classNames for h4 & p just do the following */
@@ -450,4 +491,34 @@ body {
   height: 100%;
   min-height: 0;
 }
+
+/* favorites page css */
+.favorites-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  gap: 0.5rem;
+}
+
+.favorites-page-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+
+.favorites-container-page {
+  margin-top: 1rem;
+}
+
+.favorites-container--compact {
+  height: 350px;
+}
+
+.favorites-container--full {
+  flex: 1;
+  height: 100%;
+  min-height: 0;
+}
+
 

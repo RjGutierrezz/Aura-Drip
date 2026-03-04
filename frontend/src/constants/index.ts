@@ -49,6 +49,13 @@ export const wardrobeCategories: Category[] = [
   {id: "Outerwear", name : "Outerwear"},
 ]
 
+export const favoriteCategories: Category[] = [
+  {id: "All", name : "All"},
+  {id: "Business", name : "Business"},
+  {id: "Formal", name : "Formal"},
+  {id: "Casual", name : "Casual"},
+]
+
 
 export type ClothingItems = {
   id: string
@@ -79,6 +86,33 @@ export const wardrobeClothesPlaceholder: ClothingItems[] = [
   {id: "4", name: "Wool Coat", category: "Outerwear", color: "Camel"},
 
 ]
+
+export type FavoriteOutfit = {
+  id: string
+  category: string
+}
+
+const baseItems = [
+  { category: "Casual" },
+  { category: "Business" },
+  { category: "Formal" },
+
+];
+
+
+export const favoriteClothesPlaceholder: FavoriteOutfit[] = Array.from(
+  { length: 16 },
+  (_, i) => {
+    const item = baseItems[i % baseItems.length];
+
+    return {
+      id: String(i + 1), 
+      ...item,
+    };
+  }
+);
+
+
 
 // TODO: not sure if I want to add images for the placeholder for now
 export type InspirationItem = {

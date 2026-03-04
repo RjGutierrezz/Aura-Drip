@@ -3,12 +3,14 @@ import { forwardRef, useImperativeHandle } from "react";
 import type { AnimatedIconHandle, AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
+
 const HeartIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
   (
-    { size = 24, color = "currentColor", strokeWidth = 2, className = "" },
+    { size = 24, color = "currentColor", strokeWidth = 2, fill = "none", className = "" },
     ref,
   ) => {
     const [scope, animate] = useAnimate();
+    
 
     const start = async () => {
       await animate(
@@ -44,7 +46,7 @@ const HeartIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         width={size}
         height={size}
         viewBox="0 0 24 24"
-        fill="none"
+        fill={fill}
         stroke={color}
         strokeWidth={strokeWidth}
         strokeLinecap="round"

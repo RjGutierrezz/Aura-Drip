@@ -3,6 +3,8 @@ export type AnimatedIconProps = {
   size?: number | string;
   /** Icon color (defaults to currentColor) */
   color?: string;
+    /** SVG fill color (defaults to none) */
+  fill?: string;
   /** SVG stroke width */
   strokeWidth?: number;
   /** Additional CSS classes */

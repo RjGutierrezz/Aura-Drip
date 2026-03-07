@@ -10,7 +10,7 @@ export type ClothingItems = {
 }
 
 
-const BASE_URL = "http:localhost:4000"
+const BASE_URL = "http://localhost:4000"
 
 export async function getClothingItems(): Promise<ClothingItems[]> {
   const res = await fetch(`${BASE_URL}/api/clothing`)

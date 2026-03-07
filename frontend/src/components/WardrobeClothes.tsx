@@ -21,7 +21,8 @@ const WardrobeClothes = () => {
       try {
         // check to see if the data is there
         const data = await getClothingItems()
-
+        
+        console.log("call test")
         // re-render the array to add the data to the array
         setItems(data)
       } catch (err){

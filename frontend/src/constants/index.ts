@@ -51,6 +51,11 @@ export const wardrobeCategories: Category[] = [
 
 export const favoriteCategories: Category[] = [
   {id: "All", name : "All"},
+  {id: "Tops", name : "Tops"},
+  {id: "Bottoms", name : "Bottoms"},
+  {id: "Shoes", name : "Shoes"},
+  {id: "Outerwear", name : "Outerwear"},
+  {id: "Casual", name : "Casual"},
   {id: "Business", name : "Business"},
   {id: "Formal", name : "Formal"},
   {id: "Casual", name : "Casual"},

@@ -507,8 +507,8 @@ body {
   min-height: 0;
 }
 
-/* favorites page css */
-.favorites-page {
+/* main display rectangle css */
+.display-page {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -516,24 +516,130 @@ body {
   gap: 0.5rem;
 }
 
-.favorites-page-body {
+.display-page-body {
   flex: 1;
   min-height: 0;
   display: flex;
+  align-items: center;
 }
 
-.favorites-container-page {
+.display-container-page {
   margin-top: 1rem;
 }
 
-.favorites-container--compact {
+.display-container--compact {
   height: 350px;
 }
 
-.favorites-container--full {
+.display-container--full {
   flex: 1;
   height: 100%;
   min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
+.display-container--half {
+  
+  height: 90%;
+  width: 50%;
+  margin-left: auto;
+  justify-content: center;
+}
 
+.outfit-container--full {
+  flex: 1;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: row;    
+  align-items: center;     
+  justify-content: flex-end;
+}
+
+.outfit-container--half {
+  position: relative;
+  height: 90%;
+  width: 50%;
+  margin-left: auto;
+  justify-content: center;
+  display: flex;        
+  flex-direction: column;
+  margin-right: 10px;
+}
+
+.outfit-container--quarter {
+  height: 33%;
+  width: 100%;
+  margin-left: auto;
+  justify-content: center;
+}
+
+.outfit-layout {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center;        
+}
+
+.outfit-layout-seperator {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.outfit-layout-seperator h2 {
+  margin: 0 0 0.5rem 0;
+  text-align: center;
+}
+
+.outfit-layout-seperator hr {
+  width: 50%;
+  border: none;
+  border-top: 1.5px solid black;
+  margin: 0;
+}
+
+.section-divider {
+  width: 50%;
+  border: none;
+  border-top: 1.5px solid black;
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+
+.outfit-favorite-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1;
+}
+
+.prompt {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;  
+  gap: 1rem;
+}
+
+.input-bar {
+  width: 80%;
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(18px);
+  font-size: 15px;
+  outline: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+}

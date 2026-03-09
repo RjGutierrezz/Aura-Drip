@@ -1,4 +1,4 @@
-import ProfileHeader from '../ProfileHeader';
+import ContentHeader from '../ContentHeader';
 import FavoritesContainer from '../FavoritesContainer';
   const Dashboard = () => {
 
@@ -6,9 +6,9 @@ import FavoritesContainer from '../FavoritesContainer';
 		<>
       {/* not reall using dashboard-page here */}
 			<div className="dashboard-page">
-        <ProfileHeader/>
+        <ContentHeader/>
 
-        <div className="favorites-page-body">
+        <div className="display-page-body">
 					<FavoritesContainer mode="full" />
 				</div>
 	</div>

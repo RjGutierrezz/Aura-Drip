@@ -7,6 +7,14 @@ import { getClothingItems, type ClothingItems } from "../api/clothing"
 import { useEffect, useState } from "react"
 
 const WardrobeClothes = () => {
+  const [favoritedById, setFavoritedById] = useState<Record<string, boolean>>({});
+
+  const toggleFavorite = (id: string) => {
+    setFavoritedById((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
 
   // starts an empty array
   const [ items, setItems ] = useState<ClothingItems[]>([])
@@ -46,14 +54,19 @@ const WardrobeClothes = () => {
   }
 
   return (
+    
     <section className="clothing-grid">
+      
       {/* to loop through each items and re-render each card */}
       {items.map((clothes) => (
         <ClothingCard 
+          id={clothes.id}
           key={clothes.id}
           name={clothes.name}
           category={clothes.category}
           color={clothes.color}
+           isFavorited={!!favoritedById[clothes.id]}
+          onToggleFavorite={() => toggleFavorite(clothes.id)}
         />
       ))}
     </section>

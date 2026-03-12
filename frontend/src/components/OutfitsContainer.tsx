@@ -1,4 +1,4 @@
-
+{/* This is the side container inside outfits page */}
 type OutfitsContainerProps = {
 	mode?: "compact" | "full" | "half" | "quarter";
     children?: React.ReactNode;

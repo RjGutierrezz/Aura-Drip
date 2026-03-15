@@ -8,7 +8,7 @@ type OutfitsContainerProps = {
 const OutfitsContainer = ({ mode = "half", children }: OutfitsContainerProps) => {
 	return (
 		<div
-			className={`outfit-container outfit-container--${mode} glass-panel`}
+			className={`outfit-container outfit-container--${mode}`}
 		>
 			{children}
 		</div>

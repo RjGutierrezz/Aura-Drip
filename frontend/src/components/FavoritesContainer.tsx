@@ -9,7 +9,7 @@ type FavoritesContainerProps = {
 const FavoritesContainer = ({ mode = "compact" }: FavoritesContainerProps) => {
 	return (
 		<div
-			className={`favorites-container display-container--${mode} glass-panel`}
+			className={`favorites-container display-container--${mode} `}
 		>
 			<div className="favorites-header">
 				{/* Title and Sort option here */}

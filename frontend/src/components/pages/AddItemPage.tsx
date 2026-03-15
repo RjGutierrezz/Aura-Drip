@@ -1,6 +1,8 @@
 const AddItemPage = () => {
   return (
-    <div></div>
+    <div className="add-item-page">
+      <h2>Test</h2>
+    </div>
   )
 }
 

@@ -38,7 +38,7 @@ export const sidebarLinks: SidebarLinkType[] = [
   },
   {
     name: "Add Item",
-    href: "",
+    href: "/addItem",
     icon: Sparkles,
   },
 

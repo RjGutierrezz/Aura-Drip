@@ -1,13 +1,15 @@
 import WardrobeCategories from "./WardrobeCategories";
 import WardrobeClothes from "./WardrobeClothes";
-
+import { useState} from "react"
 
 type FavoritesContainerProps = {
 	mode?: "compact" | "full";
 };
 
 const FavoritesContainer = ({ mode = "compact" }: FavoritesContainerProps) => {
-	return (
+	const [activeCategory, setActiveCategory] = useState("All")
+
+  return (
 		<div
 			className={`favorites-container display-container--${mode} `}
 		>
@@ -24,12 +26,16 @@ const FavoritesContainer = ({ mode = "compact" }: FavoritesContainerProps) => {
 			</div>
 			<div className="wardrobe-categories">
 				{/* clothes categories here */}
-				<WardrobeCategories />
+				<WardrobeCategories 
+          activeCategory={activeCategory} 
+          onSelectCategory={setActiveCategory}
+        />
 			</div>
 			<div className="wardrobe-main-content">
 				{/* clothes preview */}
 				<WardrobeClothes 
- />
+          activeCategory={activeCategory}
+        />
 			</div>
 		</div>
 	);

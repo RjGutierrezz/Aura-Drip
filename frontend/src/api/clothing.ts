@@ -42,6 +42,7 @@ export async function createClothingItems(input: CreateClothingInput) {
 	if (!res.ok) {
 		throw new Error("Failed to fetch clothing items");
 	}
+
 	const json = await res.json();
 	return json.data;
 }

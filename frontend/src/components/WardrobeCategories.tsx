@@ -1,10 +1,16 @@
-import { useState } from "react";
 import { wardrobeCategories } from "../constants";
 import CategoryCard from "./CategoryCard";
 
-const WardrobeCategories = () => {
-	const [activeCategory, setActiveCategory] = useState("All");
+type WardrobeCategoriesProps = {
+  activeCategory: string
+  onSelectCategory: (category: string) => void
+}
 
+
+const WardrobeCategories = ({
+  // padding WardrobeCategoriesProps into this component
+  activeCategory, onSelectCategory,
+}: WardrobeCategoriesProps) => {
 	return (
 		<section className="category-grid">
 			{wardrobeCategories.map((category) => (
@@ -12,7 +18,7 @@ const WardrobeCategories = () => {
 					key={category.id}
 					name={category.name}
 					isActive={activeCategory === category.name}
-					onClick={() => setActiveCategory(category.name)}
+					onClick={() => onSelectCategory(category.name)}
 				/>
 			))}
 		</section>

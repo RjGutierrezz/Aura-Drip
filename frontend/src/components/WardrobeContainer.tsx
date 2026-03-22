@@ -1,3 +1,4 @@
+import { useState } from "react"
 import WardrobeCategories from "./WardrobeCategories";
 import WardrobeClothes from "./WardrobeClothes";
 
@@ -6,7 +7,9 @@ type WardrobeContainerProps = {
 };
 
 const WardrobeContainer = ({ mode = "compact" }: WardrobeContainerProps) => {
-	return (
+	const [activeCategory, setActiveCategory] = useState("All")
+
+  return (
 		<div
 			className={`wardrobe-container wardrobe-container--${mode} `}
 		>
@@ -20,12 +23,16 @@ const WardrobeContainer = ({ mode = "compact" }: WardrobeContainerProps) => {
 				</select>
 			</div>
 			<div className="wardrobe-categories">
-				{/* clothes categories here */}
-				<WardrobeCategories />
+				{/* connects click event to parent state */}
+        <WardrobeCategories 
+          activeCategory={activeCategory}
+          onSelectCategory={setActiveCategory}
+        />
 			</div>
 			<div className="wardrobe-main-content">
-				{/* clothes preview */}
-				<WardrobeClothes />
+				{/* passing activeCategory into WardrobeClothes so the clothes component */}
+				{/*     know the current filter */}
+        <WardrobeClothes activeCategory={activeCategory}/>
 			</div>
 		</div>
 	);

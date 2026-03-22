@@ -6,7 +6,15 @@ import ClothingCard from "./ClothingCard"
 import { getClothingItems, type ClothingItems } from "../api/clothing"
 import { useEffect, useState } from "react"
 
-const WardrobeClothes = () => {
+
+type WardrobeClothesProps = {
+  activeCategory: string
+}
+
+
+const WardrobeClothes = ({
+  activeCategory
+}: WardrobeClothesProps) => {
   const [favoritedById, setFavoritedById] = useState<Record<string, boolean>>({});
 
   const toggleFavorite = (id: string) => {
@@ -53,12 +61,14 @@ const WardrobeClothes = () => {
     return <p>There are no clothes yet 😓. Start uploading!</p>
   }
 
+  const filteredItems = activeCategory === "All" 
+    ? items : items.filter((item) => item.category === activeCategory)
+  
   return (
-    
     <section className="clothing-grid">
       
-      {/* to loop through each items and re-render each card */}
-      {items.map((clothes) => (
+      {/* to loop through each (filtered) items and re-render each card */}
+      {filteredItems.map((clothes) => (
         <ClothingCard 
           key={clothes.id}
           name={clothes.name}

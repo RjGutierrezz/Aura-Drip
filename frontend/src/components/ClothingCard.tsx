@@ -1,4 +1,5 @@
 import HeartIcon from "./icons/heart-icon";
+import PenIcon from "./icons/pen-icon";
 import TrashIcon from "./icons/trash-icon";
 
 type ClothingCardProps = {
@@ -8,6 +9,7 @@ type ClothingCardProps = {
 	color: string;
 	isFavorited: boolean;
 	onToggleFavorite: () => void;
+  onEdit: () => void;
   onDelete: () => void;
 };
 
@@ -18,6 +20,7 @@ const ClothingCard = ({
 	isFavorited,
 	onToggleFavorite,
   onDelete,
+  onEdit,
 }: ClothingCardProps) => {
 	return (
 		<div>
@@ -40,12 +43,20 @@ const ClothingCard = ({
 					>
 						<HeartIcon size={20} fill={isFavorited ? "#ff4d6d" : "none"} />
 					</button>
+          <button
+            className="edit-btn"
+            onClick={onEdit}
+          >
+            <PenIcon />
+          </button>
 				</div>
 				<div className="clothing-body">
 					{/* name needs to be here */}
 					<h4>{name}</h4>
 					{/* <p>{category}</p> */}
-					{/* <span>{color}</span> */}
+					<span className="item-color-preview">
+						<span className="item-color-dot" style={{ backgroundColor: color }} />
+					</span>
 				</div>
 			</article>
 		</div>

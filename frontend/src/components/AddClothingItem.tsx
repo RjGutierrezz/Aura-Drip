@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { CreateClothingInput } from "../api/clothing";
+import { itemColorPalette } from "../constants";
 
 type Props = {
 	onSubmit: (input: CreateClothingInput) => Promise<void>;
@@ -8,7 +9,7 @@ type Props = {
 export default function AddClothingItem({ onSubmit }: Props) {
 	const [name, setName] = useState("");
 	const [category, setCategory] = useState("Tops");
-	const [color, setColor] = useState("");
+	const [color, setColor] = useState(itemColorPalette[0]);
 	const [submitting, setSubmitting] = useState(false);
 
 	const handleSubmit = async (e: React.FormEvent) => {
@@ -18,7 +19,7 @@ export default function AddClothingItem({ onSubmit }: Props) {
 			await onSubmit({ name, category, color });
 			setName("");
 			setCategory("Tops");
-			setColor("");
+			setColor(itemColorPalette[0]);
 		} finally {
 			setSubmitting(false);
 		}
@@ -39,7 +40,7 @@ export default function AddClothingItem({ onSubmit }: Props) {
 			/>
 
       <h3>Category</h3>
-			<select className="form-content" placeholder="Navy Blue Polo" value={category} onChange={(e) => setCategory(e.target.value)}>
+			<select className="form-content" value={category} onChange={(e) => setCategory(e.target.value)}>
 				<option>Tops</option>
 				<option>Bottoms</option>
 				<option>Shoes</option>
@@ -48,13 +49,18 @@ export default function AddClothingItem({ onSubmit }: Props) {
 
 
       <h3>Item Color</h3>
-			<input
-        className="form-content" 
-				value={color}
-				onChange={(e) => setColor(e.target.value)}
-				placeholder="Blue"
-				required
-			/>
+      <div className="color-palette" role="radiogroup" aria-label="Item color">
+        {itemColorPalette.map((swatch) => (
+          <button
+            key={swatch}
+            type="button"
+            className={color === swatch ? "color-swatch active" : "color-swatch"}
+            style={{ backgroundColor: swatch }}
+            onClick={() => setColor(swatch)}
+            aria-label={`Select color ${swatch}`}
+          />
+        ))}
+      </div>
       <div className="add-item-button-container">
       <button className="add-item-button glass-panel" type="submit" disabled={submitting}>
         {submitting ? "Adding..." : "Add"}

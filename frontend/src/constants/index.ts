@@ -57,6 +57,36 @@ export const wardrobeCategories: Category[] = [
   {id: "Outerwear", name : "Outerwear"},
 ]
 
+export const itemColorPalette: string[] = [
+  "#1f1f1f",
+  "#ffffff",
+  "#f3f1ec",
+  "#e8e2d9",
+  "#d1b79f",
+  "#b89b84",
+  "#8f5f4a",
+  "#6f4b3e",
+  "#4a2f2a",
+  "#6f7d8c",
+  "#3f4d5d",
+  "#233247",
+  "#9bb0c7",
+  "#8c9b77",
+  "#6d7f5d",
+  "#455c3f",
+  "#c47a6d",
+  "#ad5d50",
+  "#8f3f3a",
+  "#7e5f82",
+  "#5f4668",
+  "#b9a2c9",
+  "#d6c5af",
+  "#b58d64",
+  "#8b6a49",
+  "#a7a9ac",
+  "#7a7c80",
+]
+
 export const favoriteCategories: Category[] = [
   {id: "All", name : "All"},
   {id: "Tops", name : "Tops"},
@@ -142,4 +172,3 @@ export const inspitationItemsPlaceholder: InspirationItem[] = [
   {id: "5", name:"Classy", vibe: "minimal"},
   // {id: "6", name:"Casual", vibe: "minimal"},
 ]
-

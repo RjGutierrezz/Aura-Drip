@@ -1,6 +1,6 @@
 import ClothingCard from "./ClothingCard";
 
-// dont need this anymore
+// dont need this anymore since we can feed in data to our database
 // import { wardrobeClothesPlaceholder } from "../constants"
 
 import { useEffect, useState } from "react";

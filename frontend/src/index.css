@@ -377,6 +377,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  margin-top: 15px;
 }
 
 .category-btn {

@@ -96,6 +96,7 @@ const updateClothingSchema = z
   category: categoryEnum.optional(),
   color: z.string().min(1).max(30).optional(),
 })
+
 // enforce that at least one field is provided
 .refine((val) => Object.keys(val).length > 0, {
   message: "At least one field is required to update"

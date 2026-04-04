@@ -1,22 +1,19 @@
-import { useRef } from "react"
+import { useRef } from "react";
 
 const ContentHeader = () => {
-  
   return (
-		<div
-			className="dashboard-header"
-		>
-			{/* add search button and profile here */}
-			<div >
-        <p>Placeholder for somethhing...</p>
-			</div>
+    <div className="dashboard-header">
+      {/* add search button and profile here */}
+      <div>
+        <p>Placeholder for something...</p>
+      </div>
 
-			<div className="profile-container">
-				<span className="profile-avatar" area-hidden="true"></span>
-				<span className="profile-name">John Doe</span>
-			</div>
-		</div>
-	);
+      <div className="profile-container">
+        <span className="profile-avatar" area-hidden="true"></span>
+        <span className="profile-name">John Doe</span>
+      </div>
+    </div>
+  );
 };
 
 export default ContentHeader;

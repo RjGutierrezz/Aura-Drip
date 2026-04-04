@@ -60,10 +60,30 @@ const WardrobeClothes = ({
 		}
 	};
 
+  // this use effect is for data fetch on amount
 	useEffect(() => {
 		// To use async inside useEffect you have to do the ff
 		fetchItems();
 	}, []);
+
+  useEffect(() => {
+    // only listens when the panel is open
+    if (!editingId) return
+
+    // handler for keyboard events
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        cancelEdit()
+      }
+    }
+
+    // Register listener when panel opens
+    window.addEventListener("keydown", onKeyDown)
+
+    // cleanup listener when panel closes
+    return () => window.removeEventListener("keydown", onKeyDown)
+  }, [editingId])
+
 
 	if (error) {
 		return (
@@ -150,6 +170,9 @@ const WardrobeClothes = ({
 		setEditColor(itemColorPalette[0]);
 	};
 
+
+
+
 	const saveEdit = async () => {
 		if (!editingId) return;
 		try {
@@ -169,7 +192,7 @@ const WardrobeClothes = ({
 	};
 
 	const normalizeSearch = searchTerm.trim().toLowerCase();
-	
+
   // search filter
   const searchFiltered =
 		normalizeSearch.length === 0
@@ -204,7 +227,7 @@ const WardrobeClothes = ({
 			</div>
 		);
   }
-  
+
 
 	return (
 		<section className="clothing-grid">

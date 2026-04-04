@@ -1,3 +1,5 @@
+// this component is your feature shell for your wardrobe controls
+
 import { useRef, useState } from "react";
 import MagnifierIcon from "../components/icons/magnifier-icon";
 

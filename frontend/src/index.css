@@ -965,6 +965,14 @@ body {
   opacity: 0.9;
   transform: translateY(-1px); 
 }
+/* properties to show when the user is updating */
+.edit-btn-save:disabled {
+  opacity: 0.6;
+  curosr: not-allowed;
+  transform: "none";
+}
+
+
 
 .edit-panel {
   position: fixed;
@@ -1088,8 +1096,38 @@ body {
   100% { background-position: -200% 0; }
 }
 
+/* toast notification css */
 
+/* to pin the toast notification at the top right of the screen */
+.toast-stack {
+  position: fixed;
+  top: 20px;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1200;
+}
 
+.toast {
+  min-width: 160px;
+  max-width: 280px;
+  border-radius: 40px;
+  padding: 10px 14px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.toast-success {
+  background: #fff;
+  color: var(--text)
+}
+
+.toast-error {
+  background: rgba(183, 62, 62, 0.92);
+  color: var(--text)
+}
 
 
 

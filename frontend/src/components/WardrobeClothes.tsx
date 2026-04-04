@@ -18,6 +18,13 @@ type WardrobeClothesProps = {
 	sortOrder: "name-dec" | "name-asc";
 };
 
+// for message and visual type for the success or error 
+type ToastState = {
+  message: string
+  type: "success" | "error"
+} | null
+
+
 const WardrobeClothes = ({
 	activeCategory,
 	searchTerm,
@@ -34,6 +41,7 @@ const WardrobeClothes = ({
 		}));
 	};
 
+  // states
 	// starts an empty array
 	const [items, setItems] = useState<ClothingItems[]>([]);
 
@@ -44,6 +52,14 @@ const WardrobeClothes = ({
 	const [editName, setEditName] = useState("");
 	const [editCategory, setEditCategory] = useState("Tops");
 	const [editColor, setEditColor] = useState(itemColorPalette[0]);
+
+  const [toast, setToast] = useState<ToastState>(null)
+
+  // toast helper: resuable helper to show a toast and then auto hides it after timer
+  const showToast = (message: string, type: "success" | "error") => {
+    setToast({ message, type })
+    window.setTimeout(() => setToast(null), 2200)
+  }
 
 	const fetchItems = async () => {
 		setLoading(true);
@@ -77,7 +93,7 @@ const WardrobeClothes = ({
       }
     }
 
-    // Register listener when panel opens
+    // register listener when panel opens
     window.addEventListener("keydown", onKeyDown)
 
     // cleanup listener when panel closes
@@ -96,7 +112,7 @@ const WardrobeClothes = ({
 			</div>
 		);
 	}
-
+  
 	// checking error cases
 	if (loading) {
 		// updating the loading screen so it looks more professional
@@ -151,8 +167,11 @@ const WardrobeClothes = ({
 
 			// leave the id's that we are not trying to delete
 			setItems((prev) => prev.filter((item) => item.id !== id));
+
+      showToast("Item deleted", "success")
 		} catch (error) {
 			setError("Could not delete the item.");
+      showToast("Delete failed", "error")
 		}
 	};
 
@@ -185,9 +204,12 @@ const WardrobeClothes = ({
 			setItems((prev) =>
 				prev.map((item) => (item.id === editingId ? updated : item)),
 			);
+        
 			cancelEdit();
+      showToast("Changes saved" , "success")
 		} catch (error) {
 			setError("Could not update item.");
+      showToast("Update failed", "error")
 		}
 	};
 
@@ -317,6 +339,19 @@ const WardrobeClothes = ({
 					</div>
 				</div>
 			)}
+
+      {/* render toast UI */}
+      {
+        toast && (
+          <div className="toast-stack">
+            {/* the class name depends if the type is success or error */}
+            <div className={toast.type === "success" ? "toast toast-success" :
+              "toast toast-error"}>
+              {toast.message}
+            </div>
+          </div>
+        )
+      }
 		</section>
 	);
 };

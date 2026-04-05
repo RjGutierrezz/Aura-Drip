@@ -8,6 +8,7 @@ type ClothingCardProps = {
 	category: string;
 	color: string;
 	isFavorited: boolean;
+  imageUrl: string;
 	onToggleFavorite: () => void;
   onEdit: () => void;
   onDelete: () => void;
@@ -18,6 +19,7 @@ const ClothingCard = ({
 	category,
 	color,
 	isFavorited,
+  imageUrl,
 	onToggleFavorite,
   onDelete,
   onEdit,
@@ -26,7 +28,8 @@ const ClothingCard = ({
 		<div>
 			<article className="clothing-card">
 				<div className="clothing-image-container">
-					<button
+					
+          <button
             className="trash-btn"
             // call the function that will delete the item
             onClick={onDelete}
@@ -49,6 +52,8 @@ const ClothingCard = ({
           >
             <PenIcon />
           </button>
+
+          <img className="clothing-image" src={imageUrl} alt={name} />
 				</div>
 				<div className="clothing-body">
 					{/* name needs to be here */}

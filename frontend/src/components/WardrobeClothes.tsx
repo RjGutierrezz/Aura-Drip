@@ -264,6 +264,7 @@ const WardrobeClothes = ({
 						name={clothes.name}
 						category={clothes.category}
 						color={clothes.color}
+            imageUrl={clothes.imageUrl}
 						isFavorited={!!favoritedById[clothes.id]}
 						onToggleFavorite={() => toggleFavorite(clothes.id)}
 						onDelete={() => handleDelete(clothes.id)}

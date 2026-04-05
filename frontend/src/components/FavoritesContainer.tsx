@@ -1,15 +1,15 @@
-import WardrobeCategories from "./WardrobeCategories";
-import WardrobeClothes from "./WardrobeClothes";
-import type { AnimatedIconHandle } from "../components/icons/types";
 import { useRef, useState } from "react";
 import MagnifierIcon from "../components/icons/magnifier-icon";
+import type { AnimatedIconHandle } from "../components/icons/types";
+import WardrobeCategories from "./WardrobeCategories";
+import WardrobeClothes from "./WardrobeClothes";
 
 type FavoritesContainerProps = {
 	mode?: "compact" | "full";
 };
 
 const FavoritesContainer = ({ mode = "compact" }: FavoritesContainerProps) => {
-	const [activeCategory, setActiveCategory] = useState("All")
+	const [activeCategory, setActiveCategory] = useState("All");
 
 	//  search typed by the user
 	const [searchTerm, setSearchTerm] = useState("");
@@ -20,7 +20,7 @@ const FavoritesContainer = ({ mode = "compact" }: FavoritesContainerProps) => {
 	);
 
 	const searchIconRef = useRef<AnimatedIconHandle | null>(null);
-  return (
+	return (
 		<div
 			className={`favorites-container display-container--${mode} `}
 			onMouseEnter={() => searchIconRef.current?.startAnimation()}
@@ -29,14 +29,20 @@ const FavoritesContainer = ({ mode = "compact" }: FavoritesContainerProps) => {
 			<div className="favorites-header">
 				{/* Title and Sort option here */}
 				<h3>Favorites</h3>
-				<select className="sort-wardrobe glass-panel" name="sort" id="sort">
+				<select
+					className="sort-wardrobe glass-panel"
+					value={sortOrder}
+					onChange={(e) =>
+						setSortOrder(e.target.value as "name-asc" | "name-dec")
+					}
+				>
 					<option value="default">Sort</option>
 					<option value="name-asc">(A-Z)</option>
 					<option value="name-dec">(Z-A)</option>
 				</select>
 			</div>
 
-      {/* search by item name */}
+			{/* search by item name */}
 			<div className="search-container">
 				<MagnifierIcon ref={searchIconRef} size={14} className="search-icon" />
 				<input
@@ -49,19 +55,19 @@ const FavoritesContainer = ({ mode = "compact" }: FavoritesContainerProps) => {
 
 			<div className="wardrobe-categories">
 				{/* clothes categories here */}
-				<WardrobeCategories 
-          activeCategory={activeCategory} 
-          onSelectCategory={setActiveCategory}
-        />
+				<WardrobeCategories
+					activeCategory={activeCategory}
+					onSelectCategory={setActiveCategory}
+				/>
 			</div>
 			<div className="wardrobe-main-content">
 				{/* clothes preview */}
-				<WardrobeClothes 
-          activeCategory={activeCategory}
+				<WardrobeClothes
+					activeCategory={activeCategory}
 					searchTerm={searchTerm}
 					sortOrder={sortOrder}
-          favoritesOnly
-        />
+					favoritesOnly
+				/>
 			</div>
 		</div>
 	);

@@ -217,6 +217,26 @@ body {
   justify-content: space-between;
 }
 
+.count-container {
+  display: flex;
+  font-size: 12px;
+  color: var(--field-title);
+  gap: 12px;
+}
+.count-card h3{
+  margin: 0;
+  color: var(--text);
+  font-size: 18px;
+}
+
+.count-card p{
+  margin: 0;
+}
+.count-card {
+  padding: 10px;
+  text-align: center;
+}
+
 .profile-header {
    margin-left: auto;
 }
@@ -371,6 +391,16 @@ body {
 .suggestion-container {
   display: flex;
   justify-content: center;
+}
+
+/* suggestion-body: {} */
+
+.suggestion-body img {
+  padding: 15px;
+  width: 85%;
+  min-height: 230px;
+  object-fit: contain;
+  object-position: center;
 }
 
 .category-grid {

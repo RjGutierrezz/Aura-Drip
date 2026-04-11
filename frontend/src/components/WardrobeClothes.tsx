@@ -11,6 +11,7 @@ import {
 	updateClothingItem,
 } from "../api/clothing";
 import { itemColorPalette } from "../constants";
+import { setStyle } from "framer-motion";
 
 type WardrobeClothesProps = {
 	activeCategory: string;
@@ -19,7 +20,7 @@ type WardrobeClothesProps = {
   favoritesOnly?: boolean;
 };
 
-// for message and visual type for the success or error 
+// for message and visual type for the success or error
 type ToastState = {
   message: string
   type: "success" | "error"
@@ -44,7 +45,7 @@ const WardrobeClothes = ({
 	// 		[id]: !prev[id],
 	// 	}));
 	// };
-  
+
   // this update replaces the old function with a backend PATCH toggle, making
   // the heart persistent by using isFavorite from the backend as the single
   // source
@@ -57,7 +58,7 @@ const WardrobeClothes = ({
         isFavorite: !currentItem.isFavorite,
       })
 
-      setItems((prev) => 
+      setItems((prev) =>
         prev.map((item) => (item.id === id ? updated : item)),
       )
     } catch (error) {
@@ -79,6 +80,9 @@ const WardrobeClothes = ({
 	const [editName, setEditName] = useState("");
 	const [editCategory, setEditCategory] = useState("Tops");
 	const [editColor, setEditColor] = useState(itemColorPalette[0]);
+  const [editStyle, setEditStyle] = useState("Casual");
+  const [editOccasion, setEditOccasion] = useState("Weekend");
+  const [editWarmth, setEditWarmth] = useState("Medium")
 
   // true while patch request is in flight
   const [isSavingEdit, setIsSavingEdit] = useState(false)
@@ -144,7 +148,7 @@ const WardrobeClothes = ({
 			</div>
 		);
 	}
-  
+
 	// checking error cases
 	if (loading) {
 		// updating the loading screen so it looks more professional
@@ -173,25 +177,6 @@ const WardrobeClothes = ({
 			? sourceItems
 			: sourceItems.filter((item) => item.category === activeCategory);
 
-	// error cases for the empty storage or filtered items
-	// if (!error && items.length === 0) {
-	// 	return (
-	// 		<div className="state-card empty-state">
-	// 			<h3>Your wardrobe is empty</h3>
-	// 			<p>Add your first item from the Add Item page to get started.</p>
-	// 		</div>
-	// 	);
-	// }
-	//
-	// if (!error && filteredItems.length === 0) {
-	// 	return (
-	// 		<div className="state-card empty-state">
-	// 			<h3>No items in "{activeCategory}"</h3>
-	// 			<p>Try another category or add a new item in this category.</p>
-	// 		</div>
-	// 	);
-	// }
-
 	// delete handler
 	const handleDelete = async (id: string) => {
 		try {
@@ -212,6 +197,9 @@ const WardrobeClothes = ({
 		setEditName(item.name);
 		setEditCategory(item.category);
 		setEditColor(item.color);
+    setEditStyle(item.style);
+    setEditOccasion(item.occasion)
+    setEditWarmth(item.warmth)
 	};
 
 	const cancelEdit = () => {
@@ -219,7 +207,10 @@ const WardrobeClothes = ({
 		setEditName("");
 		setEditCategory("Tops");
 		setEditColor(itemColorPalette[0]);
-	};
+    setEditStyle("Casual");
+    setEditOccasion("Weekend")
+    setEditWarmth("Medium")
+  };
 
 
 
@@ -231,12 +222,15 @@ const WardrobeClothes = ({
 				name: editName,
 				category: editCategory,
 				color: editColor,
+        style: editStyle,
+        occasion: editOccasion,
+        warmth: editWarmth,
 			});
 
 			setItems((prev) =>
 				prev.map((item) => (item.id === editingId ? updated : item)),
 			);
-        
+
 			cancelEdit();
       showToast("Changes saved" , "success")
 		} catch (error) {
@@ -281,7 +275,6 @@ const WardrobeClothes = ({
 			</div>
 		);
   }
-
 
 	return (
 		<section className="clothing-grid">
@@ -333,6 +326,49 @@ const WardrobeClothes = ({
 									<option>Bottoms</option>
 									<option>Shoes</option>
 									<option>Outerwear</option>
+								</select>
+							</div>
+
+							<div className="edit-field-group">
+								<label className="edit-label">Style</label>
+								<select
+									className="edit-input edit-select"
+									value={editStyle}
+									onChange={(e) => setEditStyle(e.target.value)}
+								>
+									<option value="Casual">Casual</option>
+                  <option value="Formal">Formal</option>
+                  <option value="Business">Business</option>
+                  <option value="Streetwear">Streetwear</option>
+                  <option value="Minimal">Minimal</option>
+								</select>
+							</div>
+
+              <div className="edit-field-group">
+								<label className="edit-label">Occasion</label>
+								<select
+									className="edit-input edit-select"
+									value={editOccasion}
+									onChange={(e) => setEditOccasion(e.target.value)}
+								>
+									<option value="Work">Work</option>
+                  <option value="Weekend">Weekend</option>
+                  <option value="Date">Date</option>
+                  <option value="Travel">Travel</option>
+                  <option value="Event">Event</option>
+								</select>
+							</div>
+
+							<div className="edit-field-group">
+								<label className="edit-label">Warmth</label>
+								<select
+									className="edit-input edit-select"
+									value={editWarmth}
+									onChange={(e) => setEditWarmth(e.target.value)}
+								>
+									<option value="Light">Light</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Heavy">Heavy</option>
 								</select>
 							</div>
 

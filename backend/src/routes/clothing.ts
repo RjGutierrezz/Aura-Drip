@@ -37,6 +37,9 @@ const sendError = (res: Response, status: number, error: ApiError) => {
 };
 
 const categoryEnum = z.enum(["Tops", "Bottoms", "Shoes", "Outerwear"]);
+const styleEnum = z.enum(["Casual", "Formal", "Business", "Streetwear", "Minimal"])
+const occasionEnum = z.enum(["Work", "Weekend", "Date", "Travel", "Event"])
+const warmthEnum = z.enum(["Light", "Medium", "Heavy"])
 
 // this is using Zod to prevent bad data entering the database
 // it expects JSON objects
@@ -44,8 +47,12 @@ const categoryEnum = z.enum(["Tops", "Bottoms", "Shoes", "Outerwear"]);
 // UPDATED to require imageUrl
 const createClothingSchema = z.object({
 	name: z.string().min(1, "Name is required").max(100, "Name is too long"),
-	category: z.string().min(1),
+	category: categoryEnum,
 	color: z.string().min(1, "Color is required").max(30, "Color is too long"),
+  style: styleEnum,
+  occasion: occasionEnum,
+  warmth: warmthEnum,
+
 
 	// must be a valid string
 	// if front end sends an invalid string or URL, request will fail with 400
@@ -58,7 +65,6 @@ const clothingIdParamsSchema = z.object({
 });
 
 // patch schema
-//
 // UPDATE: added optional imageUrl
 const updateClothingSchema = z
 	.object({
@@ -67,6 +73,10 @@ const updateClothingSchema = z
 		color: z.string().min(1).max(30).optional(),
 
 		imageUrl: z.string().trim().url("Valid image URL is required").optional(),
+
+    style: styleEnum.optional(),
+    occasion: occasionEnum.optional(),
+    warmth: warmthEnum.optional(),
 
 		// allow favorite status toggling from frontend
 		isFavorite: z.boolean().optional(),

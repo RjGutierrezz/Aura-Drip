@@ -12,6 +12,9 @@ export type ClothingItems = {
   imageUrl: string;
   createdAt: string;
   isFavorite: boolean;
+  style: string;
+  occasion: string;
+  warmth: string,
 };
 
 export type UpdateClothingInput = {
@@ -20,6 +23,9 @@ export type UpdateClothingInput = {
   color?: string
   imageUrl?: string
   isFavorite?: boolean
+  style?: string
+  occasion?: string
+  warmth?: string
 }
 
 
@@ -40,7 +46,10 @@ export type CreateClothingInput = {
 	name: string;
 	category: string;
 	color: string;
-  imageUrl: string; 
+  imageUrl: string;
+  style: string;
+  occasion: string;
+  warmth: string;
 };
 
 

@@ -39,6 +39,11 @@ const extractPromptPreferences = (prompt: string) => {
 		wantsCasual: normalized.includes("casual"),
 		wantsBusiness: normalized.includes("business"),
 		wantsStreetwear: normalized.includes("streetwear"),
+    wantWork: normalized.includes("work") || normalized.includes("office"),
+    wantsWeekend: normalized.includes("weekend") || normalized.includes("brunch"),
+    wantsDate: normalized.includes("date"),
+    wantsTravel: normalized.includes("travel") || normalized.includes("airport"),
+    wantsEvent: normalized.includes("event") || normalized.includes("party"),
 		wantsWarm: normalized.includes("warm"),
 		wantsCold: normalized.includes("cold"),
 		wantsRain: normalized.includes("rain") || normalized.includes("rainy"),
@@ -56,12 +61,20 @@ const scoreItem = (
 		category: string;
 		color: string;
 		isFavorite: boolean;
+    style: string;
+    occasion: string;
+    warmth: string;
 	},
 	preferences: {
 		wantsFormal: boolean;
 		wantsCasual: boolean;
 		wantsBusiness: boolean;
 		wantsStreetwear: boolean;
+    wantsWork: boolean;
+    wantsWeekend: boolean;
+    wantsDate: boolean;
+    wantsTravel: boolean;
+    wantsEvent: boolean;
 		wantsWarm: boolean;
 		wantsCold: boolean;
 		wantsRain: boolean;
@@ -153,6 +166,7 @@ const scoreItem = (
       score += 2
 		}
 	}
+
 
 	return score;
 };

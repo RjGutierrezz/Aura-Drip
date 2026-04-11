@@ -1,5 +1,5 @@
 import AddClothingItem from "../AddClothingItem"
-import { createClothingItems, type CreateClothingInput } from "../../api/clothing";
+import { createClothingItems } from "../../api/clothing";
 import { useNavigate } from "react-router-dom";
 import AddClothingImage from "../AddClothingImage";
 import { useState } from "react"
@@ -11,21 +11,22 @@ const AddItemPage = () => {
 
   const [imageUrl, setImageUrl] = useState("")
 
-  const handleCreate = async (input: {name: string; category: string; color:
-                              string}) => {
-    
+  const handleCreate = async (input: {
+    name: string; category: string; color:
+      string; style: string; occasion: string; warmth: string;
+  }) => {
+
     if (!imageUrl) {
-      alert("Please select an iamge first")
+      alert("Please select an image first")
       return
     }
 
     // sends POST to backend
-    await createClothingItems({...input, imageUrl,})
-    
+    await createClothingItems({ ...input, imageUrl })
+
     // redirect to wardrobe page
     navigate("/wardrobe")
   }
-
 
   return (
     <div className="add-item-page">

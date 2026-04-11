@@ -111,8 +111,8 @@ const Dashboard = () => {
 									{isGenerating ? "Generatting..." : "Generate Outfit"}
 								</button>
 								<div className="prompt-tips glass-panel">
-									<p className="prompt-tips-title">Prompt tips</p>
-									<p>Try combining occasion, weather, and color.</p>
+									<p className="prompt-tips-title">TIPS FOR BETTER RESULTS</p>
+									{/* <p>Try combining occasion, weather, and color.</p> */}
 									<div className="prompt-tip-chips">
 										<span>Mention the occasion (work, date, brunch)</span>
 										<span>Include the weather or season</span>

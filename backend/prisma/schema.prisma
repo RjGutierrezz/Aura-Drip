@@ -19,8 +19,12 @@ model ClothingItem {
   category String
   color String
 
+  style String
+  occasion String
+  warmth String
+
   imageUrl String
-  
+
   isFavorite Boolean @default(false)
 
   createdAt DateTime @default(now())

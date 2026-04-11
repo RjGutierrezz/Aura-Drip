@@ -703,9 +703,10 @@ body {
   height: 100%;
   min-height: 0;
   display: flex;
-  flex-direction: row;    
-  align-items: center;     
+  flex-direction: row;
+  align-items: flex-start;
   justify-content: flex-end;
+  gap: 1.5rem;
 }
 
 .outfit-container--half {
@@ -738,8 +739,8 @@ body {
 .outfit-layout {
   flex: 1;
   display: flex;
-  justify-content: flex-end; 
-  align-items: center;        
+  justify-content: flex-end;
+  align-items: flex-start;
 }
 
 .outfit-layout-seperator {
@@ -857,11 +858,14 @@ body {
 
 .prompt {
   flex: 1;
+  width: min(100%, 640px);
+  min-height: 520px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 50px;
   justify-content: center;
-  text-align: center;  
+  text-align: center;
   gap: 1rem;
 }
 
@@ -875,6 +879,41 @@ body {
   font-size: 15px;
   outline: none;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+}
+
+.prompt-tips {
+  width: min(80%, 540px);
+  padding: 14px 16px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.26);
+}
+
+.prompt-tips-title {
+  margin: 0 0 6px;
+  font-weight: 600;
+  color: var(--field-title);
+}
+
+.prompt-tips p {
+  margin: 0;
+}
+
+.prompt-tip-chips {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.prompt-tip-chips span {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(122, 40, 64, 0.12);
+  font-size: 0.88rem;
+  color: rgba(47, 46, 50, 0.82);
 }
 
 

@@ -167,6 +167,53 @@ const scoreItem = (
 		}
 	}
 
+  if (preferences.wantsFormal && item.style === "Formal") {
+    score += 4
+  }
+
+  if (preferences.wantsCasual && item.style === "Casual") {
+    score += 4
+  }
+
+  if (preferences.wantsBusiness && item.style === "Business") {
+    score += 4
+  }
+
+  if (preferences.wantsStreetwear && item.style === "Streetwear") {
+    score += 4
+  }
+
+  if (preferences.wantsWork && item.occasion === "Work") {
+    score += 4
+  }
+
+  if (preferences.wantsWeekend && item.occasion === "Weekend") {
+    score += 4
+  }
+
+  if (preferences.wantsDate && item.occasion === "Date") {
+    score += 4
+  }
+
+  if (preferences.wantsTravel && item.occasion === "Travel") {
+    score += 4
+  }
+
+  if (preferences.wantsEvent && item.occasion === "Event") {
+    score += 4
+  }
+
+  if ((preferences.wantsCold || preferences.wantsRain) && item.warmth === "Heavy") {
+    score += 4
+  }
+
+  if (preferences.wantsWarm && item.warmth === "Medium") {
+    score += 3
+  }
+
+  if (preferences.wantsWarm && item.warmth === "Heavy") {
+    score += 2
+  }
 
 	return score;
 };

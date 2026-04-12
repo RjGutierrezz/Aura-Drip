@@ -831,6 +831,15 @@ body {
   color: rgba(47, 46, 50, 0.72);
 }
 
+.outfit-result-color-preview {
+  gap: 8px;
+}
+
+.outfit-result-color-label {
+  color: rgba(47, 46, 50, 0.72);
+  font-size: 0.95rem;
+}
+
 .outfit-empty-state {
   margin-top: 4px;
   font-size: 0.92rem;

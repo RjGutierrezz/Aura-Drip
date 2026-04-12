@@ -52,7 +52,14 @@ const Dashboard = () => {
 					{item ? (
 						<>
 							<p className="outfit-result-name">{item.name}</p>
-							<p className="outfit-result-color">{item.color}</p>
+							<div className="item-color-preview outfit-result-color-preview">
+								<span
+									className="item-color-dot"
+									style={{ backgroundColor: item.color }}
+									aria-hidden="true"
+								/>
+								<span className="outfit-result-color-label">Color</span>
+							</div>
 						</>
 					) : (
 						<>

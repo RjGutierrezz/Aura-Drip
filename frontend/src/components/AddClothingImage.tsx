@@ -1,9 +1,9 @@
-import { h3 } from "framer-motion/client";
 import { useRef } from "react"
 
 // define the props this component expects
+// the parent receive the call back and the preview
 type Props = {
-  onImageSelected: (imageUrl: string) => void
+  onImageSelected: (file: File, previewUrl: string) => void
   imageUrl: string
 }
 
@@ -26,25 +26,9 @@ const AddClothingImage = ( {onImageSelected, imageUrl}: Props ) => {
 
     // error case if no file was selected
     if (!file) return
-
-    // filereader() is used to read the selected file
-    // converts image into a url
-    const reader = new FileReader()
-
-    // this runs after the file has finished being read
-    reader.onload = () => {
-      const result = reader.result
-
-      // makes sure the result is a string before using it
-      if (typeof result === "string") {
-
-        // sends the image string back to the parent component
-        onImageSelected(result)
-      }
-    }
-
-    // starts reading the selected file URL
-    reader.readAsDataURL(file)
+    
+    const previewUrl = URL.createObjectURL(file)
+    onImageSelected(file, previewUrl)
   }
 
 	return (

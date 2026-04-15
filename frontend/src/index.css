@@ -8,6 +8,7 @@
   --main-button: rgba(102, 14, 96, 0.90);
   --search-bg: #f4f3f5;
   --text: #2f2e32;
+  --white-subtext: #e8e6e6;
   --test: #32a852;
   --search: #f4f3f5;
   --category: #893f71;
@@ -1423,3 +1424,70 @@ body {
   flex-direction: column;
   gap: 4px;
 }
+
+/* log in page css */
+.login-page {
+  display: flex;
+}
+
+.left-login-panel {
+  width: 100%;
+  height: 100%;
+  padding: 70px;
+}
+.left-login-panel h1 {
+  font-family: "Bodoni Moda SC", serif; 
+  color: var(--text);
+  padding-bottom: 80px;
+}
+.left-login-panel ul {
+  color: var(--text);
+  font-size: 17px;
+  font-weight: 400px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.right-login-panel {
+  width: 100%;
+  height: 100vh;
+  padding: 70px;
+  background: var(--main-win);
+
+}
+
+.login-main-text {
+  font-size: 55px;
+  font-weight: bold;
+  font-family: "Bodoni Moda SC", serif; 
+  color: var(--main-win);
+}
+
+.login-sub-text {
+  margin: 0;
+  font-style: italic;
+  font-size: 45px;
+  font-weight: bold;
+  font-family: "Bodoni Moda SC", serif; 
+  color: var(--main-win);
+}
+
+.login-text {
+  font-size: 18px;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

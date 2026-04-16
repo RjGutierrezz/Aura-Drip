@@ -14,7 +14,11 @@ type AuthContextValue = {
 	session: Session | null;
 	loading: boolean;
 	signIn: (email: string, password: string) => Promise<void>;
-	signUp: (email: string, password: string) => Promise<void>;
+	signUp: (input: {
+		email: string;
+		password: string;
+		fullName: string;
+	}) => Promise<void>;
 	signOut: () => Promise<void>;
 };
 
@@ -86,10 +90,23 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
 	};
 
 	// simple wrapper for Supabase sign up
-	const signUp = async (email: string, password: string) => {
+	const signUp = async ({
+		email,
+		password,
+		fullName,
+	}: {
+		email: string;
+		password: string;
+		fullName: string;
+	}) => {
 		const { error } = await supabase.auth.signUp({
 			email,
 			password,
+			options: {
+				data: {
+					full_name: fullName,
+				},
+			},
 		});
 
 		if (error) {
@@ -124,13 +141,13 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
 
 // custom hook so the rest of the app can do {user} = useAuth()
 export function useAuth() {
-  const context = useContext(AuthContext)
+	const context = useContext(AuthContext);
 
-  if (!context) {
-    throw new Error("useAuth must be used within an AuthProvider");
-  }
+	if (!context) {
+		throw new Error("useAuth must be used within an AuthProvider");
+	}
 
-  return context
+	return context;
 }
 
 export default AuthProvider;

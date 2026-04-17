@@ -1,5 +1,6 @@
 // TODO: weather API functionality
 
+import { useNavigate } from "react-router-dom";
 import ContentHeader from "../ContentHeader";
 import DripInspiration from "../DripInspiration";
 import ShinyText from "../ShinyText";
@@ -8,6 +9,12 @@ import WardrobeContainer from "../WardrobeContainer";
 import WeatherAPI from "../WeatherAPI";
 
 const Dashboard = () => {
+	const navigate = useNavigate();
+
+	const handleGenerateOutfit = () => {
+		navigate("/outfit");
+	};
+
 	return (
 		<>
 			{/* not reall using dashboard-page here */}
@@ -41,7 +48,11 @@ const Dashboard = () => {
 						<div className="weather-api">
 							<WeatherAPI />
 						</div>
-						<button className="outfit-button glass-card">
+						<button
+							className="outfit-button glass-card"
+							type="button"
+							onClick={handleGenerateOutfit}
+						>
 							Generate Outfit
 						</button>
 					</div>

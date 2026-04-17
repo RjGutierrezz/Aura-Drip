@@ -1913,6 +1913,18 @@ body {
   background: rgba(255, 255, 255, 0.72);
 }
 
+.profile-confirm-error {
+  margin: 0;
+  color: #a73737;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.profile-confirm-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+
 @media (max-width: 720px) {
   .profile-hero-card {
     flex-direction: column;
@@ -1942,3 +1954,5 @@ body {
     width: 100%;
   }
 }
+
+

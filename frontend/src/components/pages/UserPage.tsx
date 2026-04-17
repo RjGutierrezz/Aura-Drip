@@ -5,11 +5,15 @@ import { useAuth } from "../auth/AuthProvider";
 type PendingAction = "signout" | "delete" | null;
 
 const UserPage = () => {
-	const { user } = useAuth();
+	const { user, signOut } = useAuth();
 	const [itemCount, setItemCount] = useState(0);
 	const [favoriteCount, setFavoriteCount] = useState(0);
 	const [loadingCounts, setLoadingCounts] = useState(true);
 	const [pendingAction, setPendingAction] = useState<PendingAction>(null);
+
+	// to prevent duplicate clicks
+	const [isSubmittingAction, setIsSubmittingAction] = useState(false);
+	const [actionError, setActionError] = useState<string | null>(null);
 
 	useEffect(() => {
 		const loadCounts = async () => {
@@ -58,15 +62,47 @@ const UserPage = () => {
 	const confirmationCopy =
 		pendingAction === "signout"
 			? {
-				title: "Sign out of Aura Drip?",
-				body: "You'll need to sign in again to access your wardrobe, profile, and outfit suggestions.",
-				confirmLabel: "Yes, Sign Out",
-			}
+					title: "Sign out of Aura Drip?",
+					body: "You'll need to sign in again to access your wardrobe, profile, and outfit suggestions.",
+					confirmLabel: "Yes, Sign Out",
+				}
 			: {
-				title: "Delete this account?",
-				body: "Are you sure you want to delete your account? If you do so, you would need to create a new one and start a new wardrobe when you go back.",
-				confirmLabel: "Yes, Delete Account",
-			};
+					title: "Delete this account?",
+					body: "Are you sure you want to delete your account? If you do so, you would need to create a new one and start a new wardrobe when you go back.",
+					confirmLabel: "Yes, Delete Account",
+				};
+
+  const handleConfirmAction = async () => {
+    if (!pendingAction) return
+    
+    if (pendingAction === "delete") {
+      setPendingAction(null)
+      return
+    }
+
+    try {
+      setIsSubmittingAction(true)
+      setActionError(null)
+
+      // ask Supabase to end the current session
+      // AuthProvider will update user/session state for a whole app
+      await signOut()
+
+      // close the popup after success and will redirect the user to the login
+      setPendingAction(null)
+    } catch (error) {
+      if (error instanceof Error) {
+        setActionError(error.message)
+      } else {
+        setActionError("Could not sign out right now.");
+      }
+    } finally {
+      setIsSubmittingAction(false)
+    }
+
+  }
+
+
 
 	return (
 		<>
@@ -81,7 +117,10 @@ const UserPage = () => {
 
 					<div className="count-container profile-stats-row">
 						{stats.map((stat) => (
-							<div key={stat.label} className="count-card glass-panel profile-count-card">
+							<div
+								key={stat.label}
+								className="count-card glass-panel profile-count-card"
+							>
 								<h3>{stat.value}</h3>
 								<p>{stat.label}</p>
 							</div>
@@ -92,7 +131,9 @@ const UserPage = () => {
 				<div className="profile-grid">
 					<section className="glass-panel profile-hero-card">
 						<div className="profile-avatar-stack">
-							<div className="profile-avatar profile-avatar-large">{initials}</div>
+							<div className="profile-avatar profile-avatar-large">
+								{initials}
+							</div>
 							<button type="button" className="profile-photo-edit-btn">
 								Edit photo later
 							</button>
@@ -122,7 +163,11 @@ const UserPage = () => {
 								<label htmlFor="profile-first-name">First name</label>
 								<div className="profile-readonly-input" id="profile-first-name">
 									<span>{firstName}</span>
-									<button type="button" className="profile-field-action" disabled>
+									<button
+										type="button"
+										className="profile-field-action"
+										disabled
+									>
 										Edit later
 									</button>
 								</div>
@@ -132,7 +177,11 @@ const UserPage = () => {
 								<label htmlFor="profile-last-name">Last name</label>
 								<div className="profile-readonly-input" id="profile-last-name">
 									<span>{lastName}</span>
-									<button type="button" className="profile-field-action" disabled>
+									<button
+										type="button"
+										className="profile-field-action"
+										disabled
+									>
 										Edit later
 									</button>
 								</div>
@@ -166,7 +215,10 @@ const UserPage = () => {
 								<button
 									type="button"
 									className="profile-action-btn"
-									onClick={() => setPendingAction("signout")}
+									onClick={() => {
+                    setActionError(null)
+										setPendingAction("signout");
+									}}
 								>
 									Sign Out
 								</button>
@@ -182,7 +234,10 @@ const UserPage = () => {
 								<button
 									type="button"
 									className="profile-action-btn profile-action-btn-danger"
-									onClick={() => setPendingAction("delete")}
+									onClick={() => {
+                    setActionError(null)
+                    setPendingAction("delete")
+                  }}
 								>
 									Delete Account
 								</button>
@@ -197,13 +252,18 @@ const UserPage = () => {
 					<button
 						type="button"
 						className="profile-confirm-overlay"
-						onClick={() => setPendingAction(null)}
+						onClick={() => {
+              if (isSubmittingAction) return;
+              setPendingAction(null)
+            }}
 						aria-label="Close confirmation dialog"
 					/>
 					<div className="profile-confirm-card">
 						<p className="profile-card-label">Please Confirm</p>
 						<h2>{confirmationCopy.title}</h2>
 						<p>{confirmationCopy.body}</p>
+
+            {actionError ? (<p className="profile-confirm-error">{actionError}</p>) : null}
 						<div className="profile-confirm-actions">
 							<button
 								type="button"
@@ -215,9 +275,10 @@ const UserPage = () => {
 							<button
 								type="button"
 								className="profile-confirm-btn profile-confirm-btn-primary"
-								onClick={() => setPendingAction(null)}
+								onClick={handleConfirmAction}
+                disabled={isSubmittingAction}
 							>
-								{confirmationCopy.confirmLabel}
+                {isSubmittingAction && pendingAction === "signout" ? "Signing Out..." : confirmationCopy.confirmLabel}
 							</button>
 						</div>
 					</div>

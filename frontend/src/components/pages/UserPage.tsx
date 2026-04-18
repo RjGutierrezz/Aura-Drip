@@ -135,7 +135,7 @@ const UserPage = () => {
 								{initials}
 							</div>
 							<button type="button" className="profile-photo-edit-btn">
-								Edit photo later
+								Edit photo
 							</button>
 						</div>
 
@@ -168,7 +168,7 @@ const UserPage = () => {
 										className="profile-field-action"
 										disabled
 									>
-										Edit later
+										Edit
 									</button>
 								</div>
 							</div>
@@ -182,7 +182,7 @@ const UserPage = () => {
 										className="profile-field-action"
 										disabled
 									>
-										Edit later
+										Edit
 									</button>
 								</div>
 							</div>

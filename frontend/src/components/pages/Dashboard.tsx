@@ -1,6 +1,7 @@
 // TODO: weather API functionality
 
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../auth/AuthProvider";
 import ContentHeader from "../ContentHeader";
 import DripInspiration from "../DripInspiration";
 import ShinyText from "../ShinyText";
@@ -10,6 +11,18 @@ import WeatherAPI from "../WeatherAPI";
 
 const Dashboard = () => {
 	const navigate = useNavigate();
+
+	// read the signed-in user from the global auth provider
+	const { user } = useAuth();
+
+  // grabs the first name from Supabase user metadata and if it does not exist
+  // yet, fall back to the user's email.
+  // if neither exists, use a generic label
+	const displayName =
+		typeof user?.user_metadata?.full_name === "string" &&
+		user.user_metadata.full_name.trim().length > 0
+			? user.user_metadata.full_name.trim().split(" ")[0]
+			: (user?.email?.split("@")[0] ?? "there");
 
 	const handleGenerateOutfit = () => {
 		navigate("/outfit");
@@ -27,7 +40,7 @@ const Dashboard = () => {
 						{/* TODO: the greeting should change the name of who is signed in */}
 						<h1 className="greeting-title profile-page-title">
 							<ShinyText
-								text="Good day, John"
+								text={`Hello there, ${displayName}`}
 								speed={3.5}
 								delay={1.5}
 								color="#2f2e32"

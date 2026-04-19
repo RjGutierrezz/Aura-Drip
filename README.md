@@ -1,8 +1,6 @@
 <div align="center">
+    <a href="https://aura-drip.vercel.app/login" target="blank">
   <h1>Aura Drip</h1>
-  <p>
-    A full-stack wardrobe management and outfit recommendation app built with React, Express, Prisma, PostgreSQL, and Supabase.
-  </p>
 
   <p>
     <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript badge" />
@@ -34,6 +32,7 @@ Aura Drip is a personal full-stack project I built to practice shipping a produc
 As a new computer science graduate working toward an entry-level software engineering role, I wanted this project to show more than isolated frontend components. I wanted it to demonstrate that I can think through the full product lifecycle: database design, authentication, protected API routes, file uploads, deployment, debugging production issues, and iterative UI improvements.
 
 This project pushed me to solve real engineering problems such as:
+
 - designing a user-scoped data model for wardrobe items
 - building authenticated CRUD routes with request validation
 - connecting a Vercel frontend to a Render backend
@@ -46,6 +45,7 @@ This project pushed me to solve real engineering problems such as:
 Aura Drip is centered around personalized wardrobe management. Instead of recommending outfits from a generic catalog, the app works with the clothing a user has personally uploaded.
 
 A signed-in user can:
+
 - create an account and confirm their email
 - sign in securely with Supabase Auth
 - upload clothing images to Supabase Storage
@@ -65,6 +65,7 @@ Users can create an account, sign in, and access only their own clothing data. O
 #### 2. Wardrobe Management
 
 Users can create clothing items with the following attributes:
+
 - name
 - category
 - color
@@ -74,6 +75,7 @@ Users can create clothing items with the following attributes:
 - image URL
 
 Once an item is created, the user can:
+
 - search by item name
 - filter by category
 - sort alphabetically
@@ -87,6 +89,7 @@ The app allows users to favorite wardrobe items and view them in a dedicated fav
 #### 4. Outfit Generator
 
 Users can type prompts such as:
+
 - `Give me a warm formal outfit for today`
 - `I want something casual for the weekend`
 - `Create a business outfit using my favorites`
@@ -100,6 +103,7 @@ Clothing images are uploaded to the `clothing-images` bucket in Supabase Storage
 #### 6. Responsive UI
 
 The interface was designed and later refined for mobile responsiveness. Recent updates included:
+
 - a mobile-first layout pass
 - smaller and more balanced dashboard cards on phones
 - a sticky bottom tab bar for mobile navigation
@@ -109,6 +113,7 @@ The interface was designed and later refined for mobile responsiveness. Recent u
 ## Tech Stack, APIs, And Other Resources
 
 ### Frontend
+
 - React 19
 - TypeScript
 - Vite
@@ -118,6 +123,7 @@ The interface was designed and later refined for mobile responsiveness. Recent u
 - CSS
 
 ### Backend
+
 - Node.js
 - Express
 - TypeScript
@@ -127,14 +133,17 @@ The interface was designed and later refined for mobile responsiveness. Recent u
 - JOSE
 
 ### Database And Storage
+
 - Supabase PostgreSQL
 - Supabase Storage
 
 ### Authentication
+
 - Supabase Auth
 - JWT verification on the backend using Supabase JWKS
 
 ### Deployment
+
 - Vercel for the frontend
 - Render for the backend
 
@@ -143,6 +152,7 @@ The interface was designed and later refined for mobile responsiveness. Recent u
 ### Prerequisites
 
 Before running the project locally, make sure you have:
+
 - Node.js installed
 - npm installed
 - a Supabase project
@@ -190,6 +200,7 @@ SUPABASE_URL=your_supabase_project_url
 ```
 
 Notes:
+
 - `SUPABASE_URL` should look like `https://your-project.supabase.co`
 - `DATABASE_URL` must be a PostgreSQL connection string, not the Supabase project URL
 - for hosted environments like Render, the Supabase session pooler connection string worked more reliably than the direct database URL
@@ -232,12 +243,14 @@ The frontend runs on `http://localhost:5173`.
 ## Deployment Notes
 
 The project is deployed as two separate services:
+
 - `frontend/` on Vercel
 - `backend/` on Render
 
 ### Frontend Environment Variables
 
 Vercel needs:
+
 - `VITE_API_URL`
 - `VITE_SUPABASE_URL`
 - `VITE_SUPABASE_ANON_KEY`
@@ -245,6 +258,7 @@ Vercel needs:
 ### Backend Environment Variables
 
 Render needs:
+
 - `DATABASE_URL`
 - `SUPABASE_URL`
 
@@ -273,6 +287,7 @@ I learned that authentication affects both frontend and backend architecture. It
 ### 2. Deployment Has Its Own Debugging Layer
 
 Some of the most valuable lessons came after the app worked locally. I had to troubleshoot:
+
 - missing production environment variables
 - incorrect Supabase redirect URLs
 - Prisma migration deployment
@@ -287,6 +302,7 @@ I spent time revisiting mobile responsiveness, card sizing, navigation, and UI d
 ### 4. I Became More Comfortable Owning Problems End-To-End
 
 This project helped me grow beyond isolated components. I had to think through:
+
 - the data model
 - request validation
 - user flows
@@ -299,6 +315,7 @@ That end-to-end ownership is one of the main things I wanted this project to dem
 ## Future Improvements
 
 Some features I would like to add next:
+
 - delete account functionality on the user page
 - better weather-aware outfit recommendations
 - stronger prompt parsing and recommendation logic
@@ -307,23 +324,28 @@ Some features I would like to add next:
 - drag-and-drop image uploads
 - automated tests for backend routes and frontend components
 - code splitting and bundle optimization
+- AI reasoning for outfit generation
 
 ## How To Contribute And Report Issues
 
-This project is primarily a portfolio project, but feedback is always welcome.
+I deployed this project publicly even though its not 100% done because I wanted
+to further improve the project base on feedbacks!
 
 If you would like to contribute:
+
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
 4. Open a pull request with a clear explanation of what changed
 
 If you find a bug or want to suggest an improvement:
+
 - open a GitHub issue
 - include reproduction steps if possible
 - include screenshots or logs when relevant
 
 I especially appreciate feedback around:
+
 - code quality
 - UI and UX improvements
 - architecture decisions

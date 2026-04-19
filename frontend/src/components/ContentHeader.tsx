@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { getClothingItems } from "../api/clothing";
 import { useAuth } from "./auth/AuthProvider";
 
-type ContentHeaderProps = {
-	itemCount: number;
-	outfitCount: number;
-	favoriteCount: number;
-};
+// type ContentHeaderProps = {
+// 	itemCount: number;
+// 	outfitCount: number;
+// 	favoriteCount: number;
+// };
 
 const ContentHeader = () => {
 	const [itemCount, setItemCount] = useState(0);

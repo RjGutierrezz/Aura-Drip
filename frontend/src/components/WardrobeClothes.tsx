@@ -11,7 +11,6 @@ import {
 	updateClothingItem,
 } from "../api/clothing";
 import { itemColorPalette } from "../constants";
-import { setStyle } from "framer-motion";
 
 type WardrobeClothesProps = {
 	activeCategory: string;
@@ -33,11 +32,6 @@ const WardrobeClothes = ({
 	sortOrder,
   favoritesOnly = false,
 }: WardrobeClothesProps) => {
-	const [favoritedById, setFavoritedById] = useState<Record<string, boolean>>(
-		{},
-	);
-
-
   // removing this because this only affects and resets the UI
 	// const toggleFavorite = (id: string) => {
 	// 	setFavoritedById((prev) => ({
@@ -218,6 +212,8 @@ const WardrobeClothes = ({
 	const saveEdit = async () => {
 		if (!editingId) return;
 		try {
+      setIsSavingEdit(true)
+
 			const updated = await updateClothingItem(editingId, {
 				name: editName,
 				category: editCategory,
@@ -236,7 +232,9 @@ const WardrobeClothes = ({
 		} catch (error) {
 			setError("Could not update item.");
       showToast("Update failed", "error")
-		}
+		} finally {
+      setIsSavingEdit(false)
+    }
 	};
 
 	const normalizeSearch = searchTerm.trim().toLowerCase();

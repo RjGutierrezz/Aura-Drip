@@ -5,12 +5,20 @@ import Favorite from "../components/icons/heart-icon"
 import Sparkles from "../components/icons/sparkles-icon"
 import User from "../components/icons/user-icon"
 
-import type { ComponentType } from "react";
+import type { ForwardRefExoticComponent, RefAttributes } from "react";
+import type {
+  AnimatedIconHandle,
+  AnimatedIconProps,
+} from "../components/icons/types";
+
+type SidebarIconType = ForwardRefExoticComponent<AnimatedIconProps &
+  RefAttributes<AnimatedIconHandle>>
+
 
 export type SidebarLinkType = {
   name: string
   href: string
-  icon: ComponentType<{ size?: number; className?: string}>
+  icon: SidebarIconType
 }
 
 

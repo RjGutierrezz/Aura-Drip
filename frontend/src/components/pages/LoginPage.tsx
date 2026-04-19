@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { useAuth } from "../auth/AuthProvider";
 
 const LoginPage = () => {

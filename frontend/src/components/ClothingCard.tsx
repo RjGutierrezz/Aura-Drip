@@ -16,7 +16,7 @@ type ClothingCardProps = {
 
 const ClothingCard = ({
 	name,
-	category,
+	// category,
 	color,
 	isFavorite,
 	imageUrl,

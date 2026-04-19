@@ -5,7 +5,7 @@ type InspirationCardProps = {
 }
 
 // not sure if its even worth adding the name of the image
-const InspirationCard = ({name, vibe, imageUrl}: InspirationCardProps) => {
+const InspirationCard = ({name, imageUrl}: InspirationCardProps) => {
   return (
     <div>
       <article className="inspo-card glass-panel">

@@ -9,7 +9,7 @@ const Sidebar = () => {
 	return (
 		<aside className="sidebar">
 			<h2 className="nav-title">Aura Drip</h2>
-			<nav className="sidebar-nav">
+			<nav className="sidebar-nav" aria-label="Primary navigation">
 				{sidebarLinks.map((link) => {
 					const Icon = link.icon;
 					return (
@@ -23,10 +23,10 @@ const Sidebar = () => {
 								ref={(el: AnimatedIconHandle | null) => {
 									iconRefs.current[link.name] = el;
 								}}
-								size={20}
-							/>
-							{link.name}
-						</NavLink>
+									size={20}
+								/>
+								<span className="sidebar-link-label">{link.name}</span>
+							</NavLink>
 					);
 				})}
 			</nav>

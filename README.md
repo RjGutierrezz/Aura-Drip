@@ -1,5 +1,4 @@
 <div align="center">
-    <a href="https://aura-drip.vercel.app/login" target="blank">
   <h1>Aura Drip</h1>
 
   <p>
@@ -12,6 +11,7 @@
   </p>
 
   <img src="./frontend/public/images/dashboard.jpg" alt="Aura Drip dashboard preview" width="900" />
+  <a href="https://aura-drip.vercel.app/login" target="blank">
 </div>
 
 ## Table Of Contents
